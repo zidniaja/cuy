@@ -19,6 +19,9 @@
         setcookie($cookie_name1, $cookie_value1, time()+(86400*30), "/");
 
         $cookie_value2 = $_POST['op'];
+        if($_POST['op'] === "*") {
+            $cookie_value2 = "x";
+        }
         setcookie($cookie_name2, $cookie_value2, time()+(86400*30), "/");
         $num = "";
     }
@@ -32,7 +35,7 @@
             case "-":
                 $result = $_COOKIE['num'] - $num;
                 break;
-            case "*":
+            case "x": 
                 $result = $_COOKIE['num'] * $num;
                 break;
             case "/":
@@ -137,7 +140,8 @@
                 <input type="submit" class="numbtn" name="num"value="1">
                 <input type="submit" class="numbtn" name="num"value="2">
                 <input type="submit" class="numbtn" name="num"value="3">
-                <input type="submit" class="calbtn" name="op"value="*"><br><br>
+                <!-- Change "*" to "x" -->
+                <input type="submit" class="calbtn" name="op"value="x"><br><br>
                 <input type="submit" class="c" name="num"value="c">
                 <input type="submit" class="numbtn" name="num"value="0">
                 <input type="submit" class="equal" name="equal"value="=">
